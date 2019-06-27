@@ -2,7 +2,9 @@
 * @brief Pegar imagem binária com um labirinto represenado pelos valor 1 na imagem
 *        e retornando outra imagem com o caminho certo representado pelos valores 2.
 */
-#include "open.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "DynamicStack.h"
 #include "lab.h"
 

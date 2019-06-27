@@ -1,6 +1,5 @@
 #ifndef DynamicStack_H
 #define DynamicStack_H
-#include "open.h"
 
 #define SUCCESS 0
 #define OUT_OF_MEMORY -1

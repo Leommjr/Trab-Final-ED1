@@ -1,4 +1,6 @@
 #include "DynamicStack.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct lista_no Lista_no;
 

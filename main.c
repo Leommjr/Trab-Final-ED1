@@ -9,6 +9,9 @@
 * @date 15/06/2019
 * @bugs Nenhum atualmente.
 */
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "tmat2d.h"
 #include "lab.h"
 
@@ -36,22 +39,22 @@ int main(int argc, char *argv[])
                             exit(1);
                         }
                     }
-                    if(resp == 0)
+                    if(resp == 0){
 			            mat = open_file_txt(argv[2]);
 						imprime_matriz(mat);
-						libera_matriz(mat);
-			        else
+						libera_matriz(mat);}
+			        else{
 			        	mat = open_file_bin(argv[2]);
 						imprime_matriz(mat);
-						libera_matriz(mat);
+						libera_matriz(mat);}
 				    break;
 			case 1: mat = open_file_txt(argv[2]);
 					convert_file(argv[2], argv[3], mat);
 					imprime_matriz(mat);
 					libera_matriz(mat);
 				    break;
-			case 2: mat = open_file_bin(arv[3]);
-					segment(mat);
+			case 2: mat = open_file_bin(argv[3]);
+					segment(mat, atoi(argv[2]));
 					save_bin(argv[4], mat);
 					libera_matriz(mat);
 				    break;

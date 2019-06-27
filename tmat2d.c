@@ -236,6 +236,8 @@ tmat2d *open_file_txt(char *userparam){
   FILE *arquivo_txt;
   tmat2d *matriz1;
   int *matriz;
+  int Nlin = 0;
+  int Ncol = 1;
   arquivo_txt = fopen(userparam,"r");
   if(arquivo_txt == NULL)
   {
@@ -243,8 +245,7 @@ tmat2d *open_file_txt(char *userparam){
       exit(-1);
   }else{
           printf("Arquivo lido com sucesso\n\n");
-          int Nlin = 0;
-          int Ncol = 1;
+    
 
            char c;
            while((c = fgetc(arquivo_txt)) != EOF)
@@ -369,7 +370,7 @@ void save_bin(char*userparam2, tmat2d *mat){
 	arquivo_txt = fopen(userparam2,"wb");
 	
 	if(arquivo_txt == NULL){
-		printf("O arquivo %s não existe, tente novamente!\n",userparam);
+		printf("O arquivo %s não existe, tente novamente!\n",userparam2);
 		exit(1);
 		}
 		else{
@@ -419,34 +420,34 @@ void connected(char *userparam2, tmat2d *mat){
 			for(int j = 1; j < mat->ncolunas-1; j++){
 				p.x = i;
                 p.y = j;
-                if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(ncol-1) + p.y] == 0 ){
-					matconex->valores[p.x*(ncol-1) + p.y] = label;
+                if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(matconex->ncolunas-1) + p.y] == 0 ){
+					matconex->valores[p.x*(matconex->ncolunas-1) + p.y] = label;
 	                stack_push(prox, p);
 	                while(stack_empty(prox) != 1){
 	                	stack_top(prox, &p_atual);
 	                	stack_pop(prox);
 	                	p.x = p_atual.x-1;
 	                	p.y = p_atual.y;
-	                	if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(ncol-1) + p.y] == 0 ){
-	                		matconex->valores[p.x*(ncol-1) + p.y]
+	                	if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(matconex->ncolunas-1) + p.y] == 0 ){
+	                		matconex->valores[p.x*(matconex->ncolunas-1) + p.y];
 	                		stack_push(prox, p);
 	                		}
 	                		p.x = p_atual.x;
 	                		p.y = p_atual.y-1;
-	                		if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(ncol-1) + p.y] == 0 ){
-	                			matconex->valores[p.x*(ncol-1) + p.y]
+	                		if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(matconex->ncolunas-1) + p.y] == 0 ){
+	                			matconex->valores[p.x*(matconex->ncolunas-1) + p.y];
 	                			stack_push(prox, p);
 	                		}
 	                		p.x = p_atual.x;
 	                		p.y = p_atual.y+1;
-	                		if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(ncol-1) + p.y] == 0 ){
-	                			matconex->valores[p.x*(ncol-1) + p.y]
+	                		if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(matconex->ncolunas-1) + p.y] == 0 ){
+	                			matconex->valores[p.x*(matconex->ncolunas-1) + p.y];
 	                			stack_push(prox, p);
 	                		}
 	                		p.x = p_atual.x+1;
 	                		p.y = p_atual.y;
-	                		if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(ncol-1) + p.y] == 0 ){
-	                			matconex->valores[p.x*(ncol-1) + p.y]
+	                		if(mat->valores[p.x*(mat->ncolunas-1) + p.y] == 1 && matconex->valores[p.x*(matconex->ncolunas-1) + p.y] == 0 ){
+	                			matconex->valores[p.x*(matconex->ncolunas-1) + p.y];
 	                			stack_push(prox, p);
 	                		}                			
 					}//while
