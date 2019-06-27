@@ -62,7 +62,11 @@ int main(int argc, char *argv[])
 					connected(argv[3], mat);
 					libera_matriz(mat);
 				    break;
-			case 4: lab(argv[2],argv[3]);
+			case 4: mat = open_file_txt(argv[2]);
+					lab(argv[3], mat);
+					mat = open_file_txt(argv[3]);
+					imprime_matriz(mat);
+					libera_matriz(mat);
 				    break;
 			default: printf("ERROR: %s nao eh uma opçao valida\n",argv[1]);
 				 exit(1);
